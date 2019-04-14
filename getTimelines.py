@@ -19,7 +19,8 @@ if req.status_code == 200:
     # レスポンスは JSON なので、 parse する
     timeline = json.load(req.text)
     for tweet in timeline:
-        print(tweet["text"])
-
+        print(tweet['user']['name'] + ': ' + tweet["text"])
+        print(tweet['created_at'])
+        print('------------------------------------------------------------')
 else:
     print("Error: %d" % req.status_code)
